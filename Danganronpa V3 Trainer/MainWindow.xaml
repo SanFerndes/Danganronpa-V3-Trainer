@@ -1,0 +1,19 @@
+﻿<hc:GlowWindow x:Name="Main" x:Class="Danganronpa_V3_Trainer.MainWindow"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Danganronpa_V3_Trainer"
+        mc:Ignorable="d"
+        Title="Danganronpa V3 Trainer" Height="528.502" Width="987.19" Icon="Dangan3Win_101.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Name="loadingScreen" Visibility="Visible">
+            <Label VerticalAlignment="Top" x:Name="waitingLabel" Content="Waiting for Danganronpa..." FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Margin="0,10,0,0"/>
+            <hc:LoadingCircle HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Name="Trainer">
+            
+        </Grid>
+    </Grid>
+</hc:GlowWindow>
