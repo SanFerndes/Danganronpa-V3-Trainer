@@ -1,6 +1,6 @@
 # Danganronpa V3 Trainer
 
-All tools and hacks needed to have fun, in one place.
+All tools and hacks for Danganronpa V3, in one place.
 
 - Run the trainer
 - Open Danganronpa
