@@ -1,6 +1,6 @@
 # Danganronpa V3 Trainer
 
-All tools and hacks needed to have fun, in one place.
+All tools and hacks for Danganronpa V3, in one place.
 
 - Run the trainer
 - Open Danganronpa
@@ -24,4 +24,4 @@ This trainer uses a number of open source projects to work properly:
 Download latest release.
 
 ## Images:
-
+![](https://github.com/Dan-Banfield/Danganronpa-V3-Trainer/blob/master/Images/ex.png)
