@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Diagnostics;
 using HandyControl.Controls;
+using System.Linq;
 
 namespace Danganronpa_V3_Trainer
 {
@@ -12,7 +13,7 @@ namespace Danganronpa_V3_Trainer
     {
         private Process[] danganronpaProcessName;
 
-        private bool isOpen = false;
+        private Memory.Mem memory = new Memory.Mem();
 
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
 
@@ -27,15 +28,11 @@ namespace Danganronpa_V3_Trainer
             //If the process isn't found.
             if (DanganronpaIsNotOpen())
             {
-                isOpen = false;
-
                 LoopLookForDanganronpa();
             }
             //If the process is found.
             else if (!DanganronpaIsNotOpen())
             {
-                isOpen = true;
-
                 HideLoadingScreen();
                 ShowTrainer();
             }
@@ -66,13 +63,6 @@ namespace Danganronpa_V3_Trainer
 
                 dispatcherTimer.Stop();
             }
-            else
-            {
-                if (DanganronpaIsNotOpen())
-                {
-                    isOpen = false;
-                }
-            }
         }
 
         private void HideLoadingScreen()
@@ -83,6 +73,39 @@ namespace Danganronpa_V3_Trainer
         private void ShowTrainer()
         {
             Trainer.Visibility = Visibility.Visible;
+        }
+
+        private void topMostToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
+
+        private void topMostToggle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+        }
+
+        private void infiniteCasinoCoinsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                memory.OpenProcess(Process.GetProcessesByName("Dangan3Win").FirstOrDefault().Id);
+            }
+            catch (Exception exc)
+            {
+                HandyControl.Controls.MessageBox.Show("Please open Danganronpa first!", "Error.", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                return;
+            }
+
+            memory.WriteMemory("Dangan3Win.exe+D20080,aee0", "int", "999999999");
+
+            HandyControl.Controls.MessageBox.Show("Infinite Casino Coins updated successfuly!", "Success.", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void infiniteMonoCoinsButton_Click(object sender, RoutedEventArgs e)
+        {
+            HandyControl.Controls.MessageBox.Show("This feature hasn't been implemented yet!", "Unsuccessful.", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 }

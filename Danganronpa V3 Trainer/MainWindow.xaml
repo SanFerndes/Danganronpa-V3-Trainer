@@ -12,8 +12,13 @@
             <Label VerticalAlignment="Top" x:Name="waitingLabel" Content="Waiting for Danganronpa..." FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Margin="0,10,0,0"/>
             <hc:LoadingCircle HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Name="Trainer">
-            
+        <Grid Name="Trainer" Visibility="Hidden">
+            <CheckBox x:Name="topMostToggle" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,20" Content="Topmost" Foreground="White" Checked="topMostToggle_Checked" Unchecked="topMostToggle_Unchecked"/>
+            <StackPanel x:Name="Hacks" HorizontalAlignment="Left" Width="150" Background="#3F000000">
+                <Label Content="Money hacks:" Margin="0,15,0,0" HorizontalAlignment="Center" Foreground="White" Background="#FF3F872A"/>
+                <Button x:Name="infiniteCasinoCoinsButton" Content="Infinite Casino Coins!" Margin="10,30,10,0" FontSize="11" Click="infiniteCasinoCoinsButton_Click"/>
+                <Button x:Name="infiniteMonoCoinsButton" Content="Infinite MonoCoins!" Margin="10,10,10,0" FontSize="11" Click="infiniteMonoCoinsButton_Click"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </hc:GlowWindow>
