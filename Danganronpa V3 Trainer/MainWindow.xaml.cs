@@ -120,5 +120,23 @@ namespace Danganronpa_V3_Trainer
 
             HandyControl.Controls.MessageBox.Show("Infinite Mono Coins updated successfuly!", "Success.", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void infiniteEXPButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                memory.OpenProcess(Process.GetProcessesByName("Dangan3Win").FirstOrDefault().Id);
+            }
+            catch (Exception exc)
+            {
+                HandyControl.Controls.MessageBox.Show("Please open Danganronpa first!", "Error.", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                return;
+            }
+
+            memory.WriteMemory("Dangan3Win.exe+D20080,2410", "int", "999999");
+
+            HandyControl.Controls.MessageBox.Show("Infinite EXP updated successfuly!", "Success.", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }
